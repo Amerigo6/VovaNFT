@@ -1,0 +1,54 @@
+﻿{% extends "app/layout.html" %}
+
+{% block content %}
+
+<div class="row">
+	<div class="col-md-9">
+		<div data-cat="history" >
+			<h3 class="text-center">О нас</h3>
+			<p class="about__text">Компания VovaNFT рада привествовать новых клиентов. Мы на рынке уже более 5 лет. Хорошо зарекомендовали себя среди покупателей.
+</p>
+		</div>
+		
+	</div>
+	
+
+
+
+</div>
+
+{% endblock %}
+{% block scripts %}
+
+<script>
+	let filter = $('[data-filter]');
+
+	filter.on('click', function () {
+		let cat = $(this).data('filter');
+		$('[data-filter]').each(function () {
+			let filter_cat = $(this).data('filter');
+			if (filter_cat != cat) {
+				$(this).addClass('btn-primary');
+				$(this).removeClass('btn-success');
+			}
+			else {
+				$(this).addClass('btn-success');
+				$(this).removeClass('btn-primary');
+			}
+		});
+
+		$('[data-cat]').each(function () {
+			let item_cat = $(this).data('cat');
+			if (item_cat != cat) {
+				$(this).addClass('hide');
+			}
+			else {
+				$(this).removeClass('hide');
+			}
+		});
+	});
+
+</script>
+
+
+{% endblock %}
